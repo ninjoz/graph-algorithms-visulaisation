@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Traversal BFS</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <input type="text" id="nodeval" placeholder="Node Value" value=""><input type="button" value="Add Node" onclick="addNodeWrapper()"><input type="button" value="Add Adjascent to Node" onclick="addAdjascentToNodeWrapper()"><select id="nodesLst"></select><br>
+    <canvas id="cnv" width="600" height="600" style="border:1px solid #000000;"></canvas>
+    <br><input type="button" value="Refresh Graph" onclick="replaySteps()"/><input type="button" value="Traverse BFS" onclick="traverseBFS()"/>
+    <p id="output"></p>
+    <p id="queueOutput"></p>
+    <script src="main.js"></script>
+</body>
+</html>
