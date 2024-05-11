@@ -1,5 +1,5 @@
 const SVG_NS = "http://www.w3.org/2000/svg";
-
+ 
 // flag to indicate if an algorithm is running
 let algoRunning = false;
 
@@ -502,6 +502,7 @@ function buildSimpleExample (graph) {
 		graph.addVertex(vtx);
 	}
 
+
 	graph.addEdge(vertices[0], vertices[2]); 
 	graph.addEdge(vertices[0], vertices[1]); 
 	graph.addEdge(vertices[1], vertices[3]);
@@ -640,6 +641,156 @@ async function prim(){
 	}
 
 	costbox.innerHTML += "<br>Minimum Cost using Prim: " + cost;
+	algoRunning = false;
+	return visited; 
+}
+
+class UnionFind {
+	constructor(elements) {
+	   // Number of disconnected components
+	   this.count = elements.length;
+ 
+	   // Keep Track of connected components
+	   this.parent = {};
+ 
+	   // Initialize the data structure such that all
+	   // elements have themselves as parents
+	   elements.forEach(e => (this.parent[e] = e));
+		
+	}
+ 
+	union(a, b) {
+	   let rootA = this.find(a);
+	   let rootB = this.find(b);
+ 
+	   // Roots are same so these are already connected.
+	   if (rootA == rootB) return;
+ 
+	   // Always make the element with smaller root the parent.
+	   if (rootA < rootB) {
+		  if (this.parent[b] != b) this.union(this.parent[b], a);
+		  this.parent[b] = this.parent[a];
+	   } else {
+		  if (this.parent[a] != a) this.union(this.parent[a], b);
+		  this.parent[a] = this.parent[b];
+	   }
+	}
+ 
+	// Returns final parent of a node
+	find(a) {
+	   while (this.parent[a] != a) {
+		  a = this.parent[a];
+	   }
+	   return a;
+	}
+ 
+	// Checks connectivity of the 2 nodes
+	connected(a, b) {
+
+	   return this.find(a) == this.find(b);
+	   
+	}
+ }
+
+//kruskal
+async function kruskal(){
+	gv.unhighlightAll();
+	await sleep(500);
+
+	// if prim is running the mousehovers should not work
+	algoRunning = true;
+	let kruskalEdges = []; 
+	
+	
+	
+	//fetch user input from the html page
+	//let startVertex = document.getElementById("input-box").value;
+	
+	if (graph.vertices.length == 0){
+		alert("Add vertices first");
+		return;
+	}
+	
+
+	//array to store visited vertices
+	let visited = [];
+	var cost = 0;
+	let costAdd = false;
+	let ids = [];
+
+	for(let i = 0; i < graph.vertices.length; i++){
+		console.log(graph.vertices[i].id);
+		ids.push(graph.vertices[i].id);
+	}
+	let uf = new UnionFind(ids);
+	
+
+
+	let pq = new PriorityQueue();	
+	
+
+
+	//enqueue all edges
+	for ( let i = 0; i < graph.edges.length; i++){
+		pq.enqueue(graph.edges[i], graph.edges[i].weight);
+
+	}
+
+
+	console.log(graph.vertices.length);
+	while ( graph.edges.length != 0  && kruskalEdges.length < graph.vertices.length - 1 ){
+		let minEdge = pq.dequeue();
+		gv.highlightEdgeBrown(minEdge);
+		await sleep(2000);
+
+		if (uf.connected(minEdge.vtx1.id, minEdge.vtx2.id)) {
+			// visited.push(minEdge.vtx1.id);
+			// //update the start vertex
+			// startVertex  = minEdge.vtx1; 
+			// gv.highlightVertex(startVertex);
+			//  // checks to update the cost
+			// if (costAdd == false){
+			// 	cost += parseInt(minEdge.weight);
+			// 	costAdd = true;
+			// 	kruskalEdges.push(minEdge);
+			// 	gv.highlightEdge(minEdge);
+			// 	await sleep(500);
+			// }
+			gv.unhighlightAllBrownEdges();
+			console.log("we are");	
+			//maybe make it gray and wait
+		}else{
+			if(!visited.includes(minEdge.vtx1.id)){
+				visited.push(minEdge.vtx1.id);
+				gv.highlightVertex(minEdge.vtx1);
+			}
+			if(!visited.includes(minEdge.vtx2.id)){
+				visited.push(minEdge.vtx2.id);
+				gv.highlightVertex(minEdge.vtx2);
+			}
+				cost += parseInt(minEdge.weight);
+				costAdd = true;
+				kruskalEdges.push(minEdge);
+				console.log(kruskalEdges.length)
+				gv.unhighlightEdgeBrown(minEdge);
+				gv.highlightEdge(minEdge);
+				uf.union(minEdge.vtx1.id, minEdge.vtx2.id);
+				await sleep(1500);
+				
+
+
+		}
+
+
+		costbox.innerHTML = "<br>Minimum Cost using Kruskal: " + cost;
+
+
+
+	}
+
+
+
+	
 	algoRunning = false;
 	return visited; 
 }

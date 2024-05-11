@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Prim</title>
+    <title>Kruskal</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script src="script.js" defer></script>
   </head>
 
   <body>
+    <br>
     <div id = "main-svg">
       <div id = "run-prim" style="text-align: center">
           <svg id="graph-box" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
@@ -15,8 +16,8 @@
           </svg>
           <br>
           <div>
-            <input type="number" id="input-box" min="0" placeholder="Enter start vertex for Prim" >
-            <button onclick="prim()" id="btn-run-prim">Run Prim</button>
+            
+            <button onclick="kruskal()" id="btn-run-prim">Run</button>
           </div>
       </div>
     </div>
@@ -28,6 +29,8 @@
     <p id="cost"></p>
     <p id="graph-text-box"></p>
     <p id="weightage-paragraph"></p> 
-    </div>
+
+    
+    
   </body>
 </html>
