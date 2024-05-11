@@ -1,4 +1,23 @@
+html{
+    background-color: blanchedalmond;
+}
+
 body {
     width: 70%;
     margin: auto;
+    font-family: monospace;
+    font-size: xx-large;
+    font-weight: bold;
+    
+}
+
+a {
+    text-decoration: none;
+
+}
+
+h1, h2 {
+    color: rgb(97, 8, 8);
+    
+    
 }

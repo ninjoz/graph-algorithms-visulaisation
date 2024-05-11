@@ -1,3 +1,13 @@
+html{
+  background-color: antiquewhite;
+}
+
+body{
+  width: 40%;
+  margin: auto;
+
+}
+
 
 #nodeval {
   width:100px;

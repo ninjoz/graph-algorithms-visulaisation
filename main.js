@@ -140,7 +140,7 @@ function createOption(selectElem, optionText) {
 var nodesMap = {};
 var xDir = -1;
 var yDir = 1;
-var CNVPAD = 50;
+var CNVPAD = 100;
 
 function Node(val) {
   var ret = {};
@@ -148,8 +148,11 @@ function Node(val) {
   var y = lastY;
   var id = uuidv4();
   nodesMap[id] = ret;
-  lastX += xDir * 30;
-  lastY += yDir * 30;
+  lastX += xDir * 150;
+  lastY += yDir * 150;
+
+  console.log(lastX);
+  console.log(lastY);
   if(lastX < CNVPAD) {
       xDir = 1;
   } else if(lastX > cnv.width - CNVPAD) {
