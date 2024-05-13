@@ -19,8 +19,8 @@ This project is an application that simulates several graph algorithms. It provi
 - **Depth-First Search (DFS)**: DFS is another graph traversal algorithm that explores all the vertices of a graph in depth-first order i.e., it explores as far as possible along each branch before backtracking.
 
   ![GRAPH](https://github.com/farra-h/E-Voting/assets/134429241/8d0a382e-501c-4c10-a6b9-60b705734baa)
-  ![OREDR](https://github.com/farra-h/E-Voting/assets/134429241/c1ee83b9-eab7-45b5-961b-904fd0fe12f6)
   ![traverse](https://github.com/farra-h/E-Voting/assets/134429241/e5c5f7cd-f067-4a97-8c8c-0881f0f4ec34)
+  ![OREDR](https://github.com/farra-h/E-Voting/assets/134429241/c1ee83b9-eab7-45b5-961b-904fd0fe12f6)
   
 - **Kruskal's Algorithm**: This algorithm is used to find the minimum spanning tree of a connected and undirected graph. It treats each node as an isolated tree and connects one pair of trees at a time.
 
