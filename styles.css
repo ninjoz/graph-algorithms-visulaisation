@@ -1,18 +1,95 @@
-html{
-  background-color: antiquewhite;
+body{
+  background-color: white;
+  text-align: center;
+  margin: 0; 
+  padding: 0;
 }
 
-body{
+/* body{
   width: 40%;
   margin: auto;
 
+} */
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 60%;
+  text-align: center;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  color: black;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #efefefd3;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15); 
+
 }
 
-
-#nodeval {
+/* #nodeval {
   width:100px;
   height:30px;
-}
+} */
+
 input[type='button'],#nodesLst{
   height:34px;
+}
+
+.canva{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+  background: #d3b49f7b;
+  border-radius: 10px;
+}
+
+.input-box{
+  /* margin-top: 10px; 
+  margin-left: 20px; */
+  width: 25%;
+  text-align: left;
+  border: black dotted 1px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #6b3225eb;
+  /* position: absolute ; */
+}
+
+.input-box::placeholder{
+  color: #e5c9c2;
+}
+
+button{
+  margin: 10px;
+  padding: 13px;
+  border: black solid 1px;
+  color: white;
+  font-size: 19px;
+  font-family:  'Times New Roman', Times, serif;
+  background-color: #6b3225;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  float: right;
+  vertical-align: middle;
+}
+
+button:hover{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  background-color: #f1f1e8;
+  color: black;
 }

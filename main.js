@@ -140,7 +140,7 @@ function createOption(selectElem, optionText) {
 var nodesMap = {};
 var xDir = -1;
 var yDir = 1;
-var CNVPAD = 100;
+var CNVPAD = 60;
 
 function Node(val) {
   var ret = {};
@@ -191,7 +191,9 @@ function Node(val) {
   ret.show = function() {
       ctx.beginPath();
       ctx.arc(x, y, 10, 0, 2 * Math.PI);
-      ctx.fillStyle = "red";
+      ctx.fillStyle = "white";
+      ctx.fill();
+      ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.fillText(val, x - 20, y);
       ctx.stroke();
@@ -199,6 +201,8 @@ function Node(val) {
   ret.highlight = function() {
       ctx.beginPath();
       ctx.arc(x, y, 12, 0, 2 * Math.PI);
+      ctx.strokeStyle = "#079585";
+      ctx.lineWidth = 3;
       ctx.stroke();
   }
   return ret;
@@ -216,3 +220,25 @@ function uuidv4() {
       (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
   );
 }
+
+function resetGraph() {
+    // Clear the canvas
+    ctx.clearRect(0, 0, cnv.width, cnv.height);
+  
+    // Reset variables
+    lastX = cnv.width / 2;
+    lastY = 40;
+    lastNode = null;
+    firstNode = null;
+    steps = [];
+    nodesMap = {};
+    xDir = -1; // Reset xDir
+    yDir = 1; // Reset yDir
+    while (nodesLst.firstChild) {
+        nodesLst.removeChild(nodesLst.firstChild);
+      }
+
+    // Clear output and queueOutput
+    output.innerText = '';
+    queueOutput.innerText = '';
+  }

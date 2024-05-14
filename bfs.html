@@ -8,12 +8,42 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <br>
-    <input type="text" id="nodeval" placeholder="Node Value" value=""><input type="button" value="Add Node" onclick="addNodeWrapper()"><input type="button" value="Add Adjascent to Node" onclick="addAdjascentToNodeWrapper()"><select id="nodesLst"></select><br>
-    <canvas id="cnv" width="600" height="600" style="border:1px solid #000000;"></canvas>
-    <br><input type="button" value="Refresh Graph" onclick="replaySteps()"/><input type="button" value="Traverse BFS" onclick="traverseBFS()"/>
-    <p id="output"></p>
-    <p id="queueOutput"></p>
+    <!-- <br> -->
+    <div class="main-div">
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+            <input class="input-box" min="0" type="number" id="nodeval" placeholder="Enter Node Value">
+            <!-- <input class="add-node" type="button" value="Add Node" onclick="addNodeWrapper()"> -->
+            <button onclick="addNodeWrapper()">
+                Add Node
+            </button>
+            <!-- <input class="add-adj" type="button" value="Add Adjascent to Node" onclick="addAdjascentToNodeWrapper()"> -->
+            <button onclick="addAdjascentToNodeWrapper()">
+                Add Adjascent to Node
+            </button>
+            <select style="display: flex; vertical-align: middle;" id="nodesLst"></select>
+        <br>
+        </div>
+        <div>
+            <canvas class="canva" id="cnv" width="700" height="500"></canvas>
+            <br>
+            <!-- <input type="button" value="Refresh Graph" onclick="replaySteps()"/> -->
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <button onclick="replaySteps()">
+                    Refresh Graph
+                </button>
+                <button onclick="traverseBFS()">
+                    Traverse BFS
+                </button>
+                <button onclick="resetGraph()">
+                    Clear Graph
+                </button>
+            </div>
+            <!-- <input type="button" value="Traverse BFS" onclick="traverseBFS()"/> -->
+            <p id="output"></p>
+            <p id="queueOutput"></p>
+        </div>
+    </div>
+    
     <script src="main.js"></script>
 </body>
 </html>

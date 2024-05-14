@@ -41,7 +41,6 @@ button:hover{
     border: none;
     padding: 10px;
     border-radius: 20px;
-    background-color: #e6e6e6;
     color: black;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -103,12 +102,13 @@ svg {
 #input-box{
     margin-top: 10px; 
     margin-left: 20px;
-    width: 15%;
+    /* margin-right: 20px; */
+    width: 20%;
     text-align: left;
     border: black dotted 1px;
     padding: 10px;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     color: white;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -122,11 +122,12 @@ svg {
 }
 
 #btn-run-prim {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     position: relative;
-    margin-right: 150px;
+    margin-right: 50px;
     float: right;
+    text-align: right;
 
 }
 #center-buttons {
